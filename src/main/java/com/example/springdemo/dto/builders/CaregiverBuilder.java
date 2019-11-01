@@ -11,21 +11,23 @@ public class CaregiverBuilder {
     public static CaregiverDTO generateDTOFromEntity(Caregiver caregiver){
         return new CaregiverDTO(
                 caregiver.getCaregiverId(),
-                caregiver.getCaregiverName(),
+                caregiver.getName(),
+                caregiver.getAddress(),
                 caregiver.getBirthDate(),
-                caregiver.getGender(),
-                caregiver.getAddress());
+                caregiver.getGender());
+
     }
 
     public static Caregiver generateEntityFromDTO(CaregiverDTO caregiverDTO){
         return new Caregiver(
                 caregiverDTO.getCaregiverId(),
-                caregiverDTO.getCaregiverName(),
+                caregiverDTO.getName(),
+                caregiverDTO.getAddress(),
                 caregiverDTO.getBirthDate(),
-                caregiverDTO.getGender(),
-                caregiverDTO.getAddress());
-    }
+                caregiverDTO.getGender());
 
+    }
+    /*
     public static CaregiverDTO generateDTOFromEntityWithDoc(Caregiver caregiver){
         return new CaregiverDTO(
                 caregiver.getCaregiverId(),
@@ -35,5 +37,6 @@ public class CaregiverBuilder {
                 caregiver.getBirthDate(),
                 DoctorBuilder.generateDTOFromEntity(caregiver.getDoctor()));
     }
+     */
 }
 

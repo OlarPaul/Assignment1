@@ -15,6 +15,6 @@ public interface CaregiverRepository extends JpaRepository<Caregiver, Integer> {
 
     @Query(value = "SELECT u " +
             "FROM Caregiver u " +
-            "ORDER BY u.caregiverName")
+            "ORDER BY u.name")
     List<Caregiver> getAllOrdered();
 }

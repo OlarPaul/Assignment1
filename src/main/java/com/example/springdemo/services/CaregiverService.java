@@ -14,8 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class CaregiverService {
 
+    private final CaregiverRepository caregiverRepository;
+
     @Autowired
-    CaregiverRepository caregiverRepository;
+    public CaregiverService(CaregiverRepository caregiverRepository){
+        this.caregiverRepository = caregiverRepository;
+    }
 
     public Integer insert(CaregiverDTO caregiverDTO){
         return caregiverRepository.save(CaregiverBuilder.generateEntityFromDTO(caregiverDTO)).getCaregiverId();

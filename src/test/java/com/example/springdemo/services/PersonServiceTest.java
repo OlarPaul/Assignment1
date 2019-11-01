@@ -19,7 +19,7 @@ public class PersonServiceTest extends SpringDemoApplicationTests {
     @Test
     public void insertDTOGoodCare() {
         CaregiverDTO caregiverDTO = new CaregiverDTO();
-        caregiverDTO.setCaregiverName("John Patterson");
+        caregiverDTO.setName("John Patterson");
         caregiverDTO.setGender("Male");
         caregiverDTO.setBirthDate("15.05.2019");
         caregiverDTO.setAddress("George Baritiu nr. 22");

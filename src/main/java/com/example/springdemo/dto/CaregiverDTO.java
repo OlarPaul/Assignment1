@@ -1,38 +1,27 @@
 package com.example.springdemo.dto;
 
-import com.example.springdemo.entities.Patient;
-
 import java.util.List;
 import java.util.Objects;
 
 public class CaregiverDTO {
     private Integer caregiverId;
-    private String caregiverName;
+    private String name;
     private String birthDate;
     private String gender;
     private String address;
-    private DoctorDTO doctor;
-    private List<PatientDTO> patientList;
+    //private DoctorDTO doctor;
+    //private List<PatientDTO> patientList;
 
     public CaregiverDTO() {
     }
 
-    public CaregiverDTO(Integer caregiverId, String address, String gender, String caregiverName, String birthDate, DoctorDTO doctor) {
-        this.caregiverId = caregiverId;
-        this.address = address;
-        this.gender = gender;
-        this.caregiverName = caregiverName;
-        this.birthDate = birthDate;
-        this.doctor = doctor;
-    }
-
-
-    public CaregiverDTO(Integer caregiverId, String caregiverName, String birthDate, String gender, String address) {
+    public CaregiverDTO(Integer caregiverId, String name, String address,String birthDate, String gender) {
         this.caregiverId  = caregiverId;
-        this.caregiverName = caregiverName;
+        this.name = name;
+        this.address = address;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.address = address;
+
     }
 
     public Integer getCaregiverId() {
@@ -43,12 +32,12 @@ public class CaregiverDTO {
         this.caregiverId = caregiverId;
     }
 
-    public String getCaregiverName() {
-        return caregiverName;
+    public String getName() {
+        return name;
     }
 
-    public void setCaregiverName(String caregiverName) {
-        this.caregiverName = caregiverName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBirthDate() {
@@ -75,7 +64,7 @@ public class CaregiverDTO {
         this.address = address;
     }
 
-    public DoctorDTO getDoctor() {
+    /*public DoctorDTO getDoctor() {
         return doctor;
     }
 
@@ -90,10 +79,10 @@ public class CaregiverDTO {
     public void setPatientList(List<PatientDTO> patientList) {
         this.patientList = patientList;
     }
-
+    */
     @Override
     public int hashCode() {
-        return Objects.hash(caregiverId,caregiverName,gender,birthDate,address,doctor,patientList);
+        return Objects.hash(caregiverId,name,address,birthDate,gender);
     }
 
     @Override
@@ -102,12 +91,11 @@ public class CaregiverDTO {
         if (o == null || getClass() != o.getClass()) return false;
         CaregiverDTO caregiverDTO = (CaregiverDTO) o;
         return Objects.equals(caregiverId, caregiverDTO.caregiverId) &&
-                Objects.equals(caregiverName, caregiverDTO.caregiverName) &&
-                Objects.equals(gender, caregiverDTO.gender) &&
+                Objects.equals(name, caregiverDTO.name) &&
+                Objects.equals(address, caregiverDTO.address)&&
                 Objects.equals(birthDate, caregiverDTO.birthDate) &&
-                Objects.equals(address, caregiverDTO.address) &&
-                Objects.equals(doctor,caregiverDTO.doctor) &&
-                Objects.equals(patientList,caregiverDTO.patientList);
+                Objects.equals(gender, caregiverDTO.gender);
+
     }
 }
 

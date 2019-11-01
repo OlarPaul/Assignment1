@@ -13,10 +13,10 @@ public class Doctor {
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "doctorId", unique = true, nullable = false)
     private Integer doctorId;
-
+    /*
     @OneToMany(mappedBy = "doctor")
     private List<Caregiver> caregiverList;
-
+    */
     private String doctorName;
 
     public Doctor(){
@@ -24,7 +24,7 @@ public class Doctor {
     }
 
     public Doctor(List<Caregiver> caregiverList, String doctorName) {
-        this.caregiverList = caregiverList;
+        //this.caregiverList = caregiverList;
         this.doctorName = doctorName;
     }
 
@@ -38,7 +38,7 @@ public class Doctor {
     public void setDoctorId(Integer doctorId) {
         this.doctorId = doctorId;
     }
-
+    /*
     public List<Caregiver> getCaregiverList() {
         return caregiverList;
     }
@@ -46,7 +46,7 @@ public class Doctor {
     public void setCaregiverList(List<Caregiver> caregiverList) {
         this.caregiverList = caregiverList;
     }
-
+    */
     public String getDoctorName() {
         return doctorName;
     }

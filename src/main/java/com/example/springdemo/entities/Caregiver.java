@@ -14,10 +14,10 @@ public class Caregiver {
     @Column(name = "caregiverId", unique = true, nullable = false)
     private Integer caregiverId;
 
-    @Column(name = "caregiverName", nullable = false, length = 100)
-    private String caregiverName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "address", nullable = false, unique=true, length = 200)
+    @Column(name = "address")
     private String address;
 
     @Column(name = "birthDate")
@@ -29,25 +29,19 @@ public class Caregiver {
     @OneToMany(mappedBy = "caregiver")
     private List<Patient> patientList;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id_doctor")
     private Doctor doctor;
-
+    */
     public Caregiver(){
     }
 
-    public Caregiver(Integer caregiverId,String caregiverName, String address, String birthDate, String gender) {
+    public Caregiver(Integer caregiverId,String name, String address, String birthDate, String gender) {
         this.caregiverId = caregiverId;
-        this.caregiverName= caregiverName;
-        this.address = address;
+        this.name = name;
         this.birthDate = birthDate;
         this.gender = gender;
-    }
-
-    public Caregiver(Integer caregiverId, String caregiverName, String gender) {
-        this.caregiverId = caregiverId;
-        this.caregiverName = caregiverName;
-        this.gender = gender;
+        this.address = address;
     }
 
 
@@ -59,12 +53,12 @@ public class Caregiver {
         this.caregiverId = caregiverId;
     }
 
-    public String getCaregiverName() {
-        return caregiverName;
+    public String getName() {
+        return name;
     }
 
-    public void setCaregiverName(String caregiverName) {
-        this.caregiverName = caregiverName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -98,7 +92,7 @@ public class Caregiver {
     public void setPatientList(List<Patient> patientList) {
         this.patientList = patientList;
     }
-
+    /*
     public Doctor getDoctor() {
         return doctor;
     }
@@ -106,5 +100,6 @@ public class Caregiver {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+     */
 }
 

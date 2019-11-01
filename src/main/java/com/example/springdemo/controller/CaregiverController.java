@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/api")
 public class CaregiverController {
     private final CaregiverService caregiverService;
@@ -18,12 +18,12 @@ public class CaregiverController {
         this.caregiverService = caregiverService;
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("caregiver/list/{id}")
     public CaregiverDTO findByCaregiverId(@PathVariable("id") Integer id){
         return caregiverService.findByCaregiverId(id);
     }
 
-    @GetMapping()
+    @GetMapping("/caregiver/list")
     public List<CaregiverDTO> findAll(){
         return caregiverService.findAll();
     }
@@ -33,11 +33,10 @@ public class CaregiverController {
         return caregiverService.insert(caregiverDTO);
     }
 
-    @PutMapping()
-    public Integer updateCaregiver(@RequestBody CaregiverDTO caregiverDTO) {
+    @PutMapping("/customer/list/{id}")
+        public Integer updateCaregiver(@RequestBody CaregiverDTO caregiverDTO, @PathVariable String id) {
         return caregiverService.update(caregiverDTO);
     }
-
     @DeleteMapping()
     public void deleteCaregiver(@RequestBody CaregiverDTO caregiverDTO){
         caregiverService.delete(caregiverDTO);
